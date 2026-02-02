@@ -4451,7 +4451,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   gap: 2rem;
-  justify-items: center;      /* center all grid cells */
+  justify-content: center;      /* center all grid cells */
   align-items: center;
   max-width: 1200px;           /* optional: constrain width */
   margin: 0 auto;              /* center the whole grid */
@@ -4475,4 +4475,9 @@
 
 #whats-new .thumb img:hover {
   transform: scale(1.05);
+}
+
+#whats-new .inner {
+  max-width: none;
+  width: 100%;
 }
