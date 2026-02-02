@@ -4442,7 +4442,7 @@
 			}
 
 		}
-/* What’s New Grid (Snapshot-style) */
+
 #whats-new {
   padding: 3rem 0;
 }
@@ -4465,6 +4465,7 @@
   display: block;
   object-fit: cover;
   transition: transform 0.3s ease;
+  cusor: default
 }
 
 #whats-new .thumb img:hover {
