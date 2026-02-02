@@ -4442,27 +4442,30 @@
 			}
 
 		}
-/* Image Grid Section */
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+/* What’s New Grid (Snapshot-style) */
+#whats-new {
+  padding: 3rem 0;
 }
 
-.image-box {
+#whats-new .thumbnails {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+#whats-new .thumb {
   overflow: hidden;
   border-radius: 6px;
 }
 
-.image-box img {
+#whats-new .thumb img {
   width: 100%;
-  height: 100%;
   display: block;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
 
-.image-box img:hover {
+#whats-new .thumb img:hover {
   transform: scale(1.05);
 }
