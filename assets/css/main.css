@@ -4449,7 +4449,7 @@
 
 #whats-new .thumbnails {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   gap: 1.5rem;
   margin-top: 1rem;
 }
@@ -4457,6 +4457,7 @@
 #whats-new .thumb {
   overflow: hidden;
   border-radius: 6px;
+  height: 320px;
 }
 
 #whats-new .thumb img {
