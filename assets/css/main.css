@@ -4451,18 +4451,19 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   gap: 2rem;
-  justify-content: center;      /* center all grid cells */
-  align-items: center;
-  max-width: 1200px;           /* optional: constrain width */
-  margin: 0 auto;              /* center the whole grid */
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+
+  max-width: 1200px;
+  margin: 0 auto;
+
+  justify-content: center;
+  justify-items: center;     
 }
 
 #whats-new .thumb {
-  overflow: hidden;
-  border-radius: 6px;
-  height: 320px;
+  display: block;
+  width: 100%;
+  max-width: 450px;  /* match your min column size */
+  margin: 0 auto;
 }
 
 #whats-new .thumb img {
