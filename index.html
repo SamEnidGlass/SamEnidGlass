@@ -21,58 +21,85 @@
       </div>
     </section>
 
-    <section id="zero" class="gallery style2 medium lightbox onscroll-fade-in">
-      <article>
-        <a href="images/SamEnidGlass_07.jpg" class="image">
-          <img src="images/SamEnidGlass_07.jpg" alt="">
-        </a>
-      </article>
+    <section id="zero" class="gallery-wrapper">
 
-      <article>
-        <a href="images/SamEnidGlass_07.jpg" class="image">
-          <img src="images/SamEnidGlass_07.jpg" alt="">
-        </a>
-      </article>
-      <article>
-        <a href="images/SamEnidGlass_07.jpg" class="image">
-          <img src="images/SamEnidGlass_07.jpg" alt="">
-        </a>
-      </article>
-      <article>
-        <a href="images/SamEnidGlass_07.jpg" class="image">
-          <img src="images/SamEnidGlass_07.jpg" alt="">
-        </a>
-      </article>
-      <article>
-        <a href="images/SamEnidGlass_07.jpg" class="image">
-          <img src="images/SamEnidGlass_07.jpg" alt="">
-        </a>
-      </article>
-      <article>
-        <a href="images/SamEnidGlass_07.jpg" class="image">
-          <img src="images/SamEnidGlass_07.jpg" alt="">
-        </a>
-      </article>
-      <article>
-        <a href="images/SamEnidGlass_07.jpg" class="image">
-          <img src="images/SamEnidGlass_07.jpg" alt="">
-        </a>
-      </article>
-      <article>
-        <a href="images/SamEnidGlass_07.jpg" class="image">
-          <img src="images/SamEnidGlass_07.jpg" alt="">
-        </a>
-      </article>
-      <article>
-        <a href="images/SamEnidGlass_07.jpg" class="image">
-          <img src="images/SamEnidGlass_07.jpg" alt="">
-        </a>
-      </article>
-      <article>
-        <a href="images/SamEnidGlass_07.jpg" class="image">
-          <img src="images/SamEnidGlass_07.jpg" alt="">
-        </a>
-      </article>
+      <button class="gallery-arrow left">&#10094;</button>
+
+      <section class="gallery style2 medium">
+        <article>
+          <a href="images/SamEnidGlass_07.jpg" class="image">
+            <img src="images/SamEnidGlass_07.jpg" alt="">
+          </a>
+        </article>
+        <article>
+          <a href="images/SamEnidGlass_07.jpg" class="image">
+            <img src="images/SamEnidGlass_07.jpg" alt="">
+          </a>
+        </article>
+        <article>
+          <a href="images/SamEnidGlass_07.jpg" class="image">
+            <img src="images/SamEnidGlass_07.jpg" alt="">
+          </a>
+        </article>
+        <article>
+          <a href="images/SamEnidGlass_07.jpg" class="image">
+            <img src="images/SamEnidGlass_07.jpg" alt="">
+          </a>
+        </article>
+        <article>
+          <a href="images/SamEnidGlass_07.jpg" class="image">
+            <img src="images/SamEnidGlass_07.jpg" alt="">
+          </a>
+        </article>
+        <article>
+          <a href="images/SamEnidGlass_07.jpg" class="image">
+            <img src="images/SamEnidGlass_07.jpg" alt="">
+          </a>
+        </article>
+        <article>
+          <a href="images/SamEnidGlass_07.jpg" class="image">
+            <img src="images/SamEnidGlass_07.jpg" alt="">
+          </a>
+        </article>
+        <article>
+          <a href="images/SamEnidGlass_07.jpg" class="image">
+            <img src="images/SamEnidGlass_07.jpg" alt="">
+          </a>
+        </article>
+        <article>
+          <a href="images/SamEnidGlass_07.jpg" class="image">
+            <img src="images/SamEnidGlass_07.jpg" alt="">
+          </a>
+        </article>
+        <article>
+          <a href="images/SamEnidGlass_07.jpg" class="image">
+            <img src="images/SamEnidGlass_07.jpg" alt="">
+          </a>
+        </article>
+        <article>
+          <a href="images/SamEnidGlass_07.jpg" class="image">
+            <img src="images/SamEnidGlass_07.jpg" alt="">
+          </a>
+        </article>
+        <article>
+          <a href="images/SamEnidGlass_07.jpg" class="image">
+            <img src="images/SamEnidGlass_07.jpg" alt="">
+          </a>
+        </article>
+        <article>
+          <a href="images/SamEnidGlass_07.jpg" class="image">
+            <img src="images/SamEnidGlass_07.jpg" alt="">
+          </a>
+        </article>
+        <article>
+          <a href="images/SamEnidGlass_07.jpg" class="image">
+            <img src="images/SamEnidGlass_07.jpg" alt="">
+          </a>
+        </article>
+      </section>
+
+      <button class="gallery-arrow right">&#10095;</button>
+
     </section>
 
     <!-- One -->
@@ -192,13 +219,56 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/glightbox.min.js"></script>
-      <script>
-        GLightbox({
-          selector: '.gallery a.image',
-          loop: true
-        });
-      </script>
+    <script>
+      // Initialize GLightbox
+      GLightbox({
+        selector: '.gallery a.image',
+        loop: true
+      });
 
+      // Horizontal scroll arrows
+      const gallery = document.querySelector('.gallery.style2');
+      const leftArrow = document.querySelector('.gallery-arrow.left');
+      const rightArrow = document.querySelector('.gallery-arrow.right');
+
+      leftArrow.addEventListener('click', () => {
+        gallery.scrollBy({ left: -300, behavior: 'smooth' });
+      });
+
+      rightArrow.addEventListener('click', () => {
+        gallery.scrollBy({ left: 300, behavior: 'smooth' });
+      });
+
+      // Drag-to-scroll
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      gallery.addEventListener('mousedown', (e) => {
+        isDown = true;
+        gallery.classList.add('active');
+        startX = e.pageX - gallery.offsetLeft;
+        scrollLeft = gallery.scrollLeft;
+      });
+
+      gallery.addEventListener('mouseleave', () => {
+        isDown = false;
+        gallery.classList.remove('active');
+      });
+
+      gallery.addEventListener('mouseup', () => {
+        isDown = false;
+        gallery.classList.remove('active');
+      });
+
+      gallery.addEventListener('mousemove', (e) => {
+        if(!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - gallery.offsetLeft;
+        const walk = (x - startX) * 2; // adjust scroll speed
+        gallery.scrollLeft = scrollLeft - walk;
+      });
+    </script>
   </body>
 </html>
 
