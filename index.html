@@ -25,78 +25,80 @@
 
       <button class="gallery-arrow left">&#10094;</button>
 
-      <section class="gallery style2 medium">
-        <article>
-          <a href="images/SamEnidGlass_07.jpg" class="image">
-            <img src="images/SamEnidGlass_07.jpg" alt="">
-          </a>
-        </article>
-        <article>
-          <a href="images/SamEnidGlass_07.jpg" class="image">
-            <img src="images/SamEnidGlass_07.jpg" alt="">
-          </a>
-        </article>
-        <article>
-          <a href="images/SamEnidGlass_07.jpg" class="image">
-            <img src="images/SamEnidGlass_07.jpg" alt="">
-          </a>
-        </article>
-        <article>
-          <a href="images/SamEnidGlass_07.jpg" class="image">
-            <img src="images/SamEnidGlass_07.jpg" alt="">
-          </a>
-        </article>
-        <article>
-          <a href="images/SamEnidGlass_07.jpg" class="image">
-            <img src="images/SamEnidGlass_07.jpg" alt="">
-          </a>
-        </article>
-        <article>
-          <a href="images/SamEnidGlass_07.jpg" class="image">
-            <img src="images/SamEnidGlass_07.jpg" alt="">
-          </a>
-        </article>
-        <article>
-          <a href="images/SamEnidGlass_07.jpg" class="image">
-            <img src="images/SamEnidGlass_07.jpg" alt="">
-          </a>
-        </article>
-        <article>
-          <a href="images/SamEnidGlass_07.jpg" class="image">
-            <img src="images/SamEnidGlass_07.jpg" alt="">
-          </a>
-        </article>
-        <article>
-          <a href="images/SamEnidGlass_07.jpg" class="image">
-            <img src="images/SamEnidGlass_07.jpg" alt="">
-          </a>
-        </article>
-        <article>
-          <a href="images/SamEnidGlass_07.jpg" class="image">
-            <img src="images/SamEnidGlass_07.jpg" alt="">
-          </a>
-        </article>
-        <article>
-          <a href="images/SamEnidGlass_07.jpg" class="image">
-            <img src="images/SamEnidGlass_07.jpg" alt="">
-          </a>
-        </article>
-        <article>
-          <a href="images/SamEnidGlass_07.jpg" class="image">
-            <img src="images/SamEnidGlass_07.jpg" alt="">
-          </a>
-        </article>
-        <article>
-          <a href="images/SamEnidGlass_07.jpg" class="image">
-            <img src="images/SamEnidGlass_07.jpg" alt="">
-          </a>
-        </article>
-        <article>
-          <a href="images/SamEnidGlass_07.jpg" class="image">
-            <img src="images/SamEnidGlass_07.jpg" alt="">
-          </a>
-        </article>
-      </section>
+      <div class="gallery-container">
+        <section class="gallery style2 medium">
+          <article>
+            <a href="images/SamEnidGlass_07.jpg" class="image">
+              <img src="images/SamEnidGlass_07.jpg" alt="">
+            </a>
+          </article>
+          <article>
+            <a href="images/SamEnidGlass_07.jpg" class="image">
+              <img src="images/SamEnidGlass_07.jpg" alt="">
+            </a>
+          </article>
+          <article>
+            <a href="images/SamEnidGlass_07.jpg" class="image">
+              <img src="images/SamEnidGlass_07.jpg" alt="">
+            </a>
+          </article>
+          <article>
+            <a href="images/SamEnidGlass_07.jpg" class="image">
+              <img src="images/SamEnidGlass_07.jpg" alt="">
+            </a>
+          </article>
+          <article>
+            <a href="images/SamEnidGlass_07.jpg" class="image">
+              <img src="images/SamEnidGlass_07.jpg" alt="">
+            </a>
+          </article>
+          <article>
+            <a href="images/SamEnidGlass_07.jpg" class="image">
+              <img src="images/SamEnidGlass_07.jpg" alt="">
+            </a>
+          </article>
+          <article>
+            <a href="images/SamEnidGlass_07.jpg" class="image">
+              <img src="images/SamEnidGlass_07.jpg" alt="">
+            </a>
+          </article>
+          <article>
+            <a href="images/SamEnidGlass_07.jpg" class="image">
+              <img src="images/SamEnidGlass_07.jpg" alt="">
+            </a>
+          </article>
+          <article>
+            <a href="images/SamEnidGlass_07.jpg" class="image">
+              <img src="images/SamEnidGlass_07.jpg" alt="">
+            </a>
+          </article>
+          <article>
+            <a href="images/SamEnidGlass_07.jpg" class="image">
+              <img src="images/SamEnidGlass_07.jpg" alt="">
+            </a>
+          </article>
+          <article>
+            <a href="images/SamEnidGlass_07.jpg" class="image">
+              <img src="images/SamEnidGlass_07.jpg" alt="">
+            </a>
+          </article>
+          <article>
+            <a href="images/SamEnidGlass_07.jpg" class="image">
+              <img src="images/SamEnidGlass_07.jpg" alt="">
+            </a>
+          </article>
+          <article>
+            <a href="images/SamEnidGlass_07.jpg" class="image">
+              <img src="images/SamEnidGlass_07.jpg" alt="">
+            </a>
+          </article>
+          <article>
+            <a href="images/SamEnidGlass_07.jpg" class="image">
+              <img src="images/SamEnidGlass_07.jpg" alt="">
+            </a>
+          </article>
+        </section>
+      </div>
 
       <button class="gallery-arrow right">&#10095;</button>
 
@@ -227,16 +229,16 @@
       });
 
       // Horizontal scroll arrows
-      const gallery = document.querySelector('.gallery.style2');
+      const galleryContainer = document.querySelector('.gallery-container'); // updated
       const leftArrow = document.querySelector('.gallery-arrow.left');
       const rightArrow = document.querySelector('.gallery-arrow.right');
 
       leftArrow.addEventListener('click', () => {
-        gallery.scrollBy({ left: -300, behavior: 'smooth' });
+        galleryContainer.scrollBy({ left: -300, behavior: 'smooth' });
       });
 
       rightArrow.addEventListener('click', () => {
-        gallery.scrollBy({ left: 300, behavior: 'smooth' });
+        galleryContainer.scrollBy({ left: 300, behavior: 'smooth' });
       });
 
       // Drag-to-scroll
@@ -244,29 +246,29 @@
       let startX;
       let scrollLeft;
 
-      gallery.addEventListener('mousedown', (e) => {
+      galleryContainer.addEventListener('mousedown', (e) => {
         isDown = true;
-        gallery.classList.add('active');
-        startX = e.pageX - gallery.offsetLeft;
-        scrollLeft = gallery.scrollLeft;
+        galleryContainer.classList.add('active');
+        startX = e.pageX - galleryContainer.offsetLeft;
+        scrollLeft = galleryContainer.scrollLeft;
       });
 
-      gallery.addEventListener('mouseleave', () => {
+      galleryContainer.addEventListener('mouseleave', () => {
         isDown = false;
-        gallery.classList.remove('active');
+        galleryContainer.classList.remove('active');
       });
 
-      gallery.addEventListener('mouseup', () => {
+      galleryContainer.addEventListener('mouseup', () => {
         isDown = false;
-        gallery.classList.remove('active');
+        galleryContainer.classList.remove('active');
       });
 
-      gallery.addEventListener('mousemove', (e) => {
+      galleryContainer.addEventListener('mousemove', (e) => {
         if(!isDown) return;
         e.preventDefault();
-        const x = e.pageX - gallery.offsetLeft;
+        const x = e.pageX - galleryContainer.offsetLeft;
         const walk = (x - startX) * 2; // adjust scroll speed
-        gallery.scrollLeft = scrollLeft - walk;
+        galleryContainer.scrollLeft = scrollLeft - walk;
       });
     </script>
   </body>
