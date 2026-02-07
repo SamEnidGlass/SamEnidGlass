@@ -6,6 +6,8 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/gallery.css">
+    <link rel="stylesheet" href="assets/css/glightbox.min.css">
   </head>
 
   <body>
@@ -18,6 +20,20 @@
         </header>
       </div>
       <a href="#one" class="more">Learn More</a>
+    </section>
+
+    <section id="zero" class="gallery style2 medium lightbox onscroll-fade-in">
+      <article>
+        <a href="images/SamEnidGlass_07.jpg" class="image">
+          <img src="images/SamEnidGlass_07.jpg" alt="">
+        </a>
+      </article>
+
+      <article>
+        <a href="images/SamEnidGlass_07.jpg" class="image">
+          <img src="images/SamEnidGlass_07.jpg" alt="">
+        </a>
+      </article>
     </section>
 
     <!-- One -->
@@ -136,6 +152,13 @@
     <script src="assets/js/skel.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/glightbox.min.js"></script>
+      <script>
+        GLightbox({
+          selector: '.gallery a.image',
+          loop: true
+        });
+      </script>
 
   </body>
 </html>

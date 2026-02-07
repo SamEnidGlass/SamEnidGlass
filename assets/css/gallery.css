@@ -1,0 +1,37 @@
+/* ===== Gallery base ===== */
+.gallery {
+  display: flex;
+  gap: 2rem;
+}
+
+/* ===== Gallery style2 (horizontal scroll) ===== */
+.gallery.style2 {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
+}
+
+/* ===== Gallery items ===== */
+.gallery.style2 article {
+  flex: 0 0 auto;
+}
+
+/* ===== Image wrapper ===== */
+.gallery .image {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.375rem;
+}
+
+.gallery .image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ===== Size modifier ===== */
+.gallery.medium article {
+  width: 18rem;
+}
