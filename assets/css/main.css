@@ -4482,3 +4482,32 @@
   max-width: none;
   width: 100%;
 }
+
+.collage {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	grid-auto-rows: 150px;
+	gap: 10px;
+	padding: 10px;
+}
+
+.collage img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* Ensures images fill their space without distortion */
+	border-radius: 8px;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+	transition: transform 0.3s ease;
+}
+
+.collage img:hover {
+	transform: scale(1.05);
+}
+
+/* Optional: Make some images span more space for a collage effect */
+.wide {
+	grid-column: span 2;
+}
+.tall {
+	grid-row: span 2;
+}
