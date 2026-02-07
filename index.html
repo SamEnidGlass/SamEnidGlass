@@ -104,7 +104,7 @@
 
     </section>
 
-    <!-- One -->
+    <!-- One
     <section id="one">
       <div class="collage-columns">
         <div class="col two">
@@ -119,13 +119,13 @@
           <img src="images/SamEnidGlass_06.jpg" alt="Image 5">
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- What's New Section -->
     <section id="whats-new" class="wrapper">
       <div class="inner">
-        <header class="align-left">
-          <h2>Product Description section</h2>
+        <header class="align-center">
+          <h2>About my work</h2>
         </header>
 
         <div class="thumbnails">
@@ -175,10 +175,6 @@
               Bio here
             </p>
           </div>
-
-          <footer>
-            <a href="generic.html" class="button alt">Learn More</a>
-          </footer>
         </article>
       </div>
     </section>
@@ -222,14 +218,37 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/glightbox.min.js"></script>
     <script>
-      // Initialize GLightbox
-      GLightbox({
-        selector: '.gallery a.image',
-        loop: true
+      // ============================
+      // 1. Automatically wrap all images not already in a link
+      // ============================
+      document.querySelectorAll('img').forEach(img => {
+        if (!img.parentElement || img.parentElement.tagName !== 'A') {
+          const link = document.createElement('a');
+          link.href = img.src;               // link to image
+          link.classList.add('glightbox');   // target for GLightbox
+          if (img.alt) {
+            link.setAttribute('data-title', img.alt); // caption from alt
+          }
+          img.parentNode.insertBefore(link, img);
+          link.appendChild(img);
+        }
       });
 
-      // Horizontal scroll arrows
-      const galleryContainer = document.querySelector('.gallery-container'); // updated
+      // ============================
+      // 2. Initialize GLightbox for all images
+      // ============================
+      GLightbox({
+        selector: 'a.glightbox',
+        loop: true,
+        openEffect: 'zoom',
+        closeEffect: 'fade',
+        touchNavigation: true
+      });
+
+      // ============================
+      // 3. Horizontal gallery scroll and arrows
+      // ============================
+      const galleryContainer = document.querySelector('.gallery-container');
       const leftArrow = document.querySelector('.gallery-arrow.left');
       const rightArrow = document.querySelector('.gallery-arrow.right');
 
