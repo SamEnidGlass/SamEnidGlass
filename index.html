@@ -70,10 +70,6 @@
         </section>
       </div>
 
-      <div class="gallery-scrollbar">
-        <div class="gallery-scrollbar-thumb"></div>
-      </div>
-
       <button class="gallery-arrow right">&#10095;</button>
 
     </section>
@@ -165,7 +161,63 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/glightbox.min.js"></script>
-    <script src="assets/js/gallery.js"></script>
+    <script>
+      // ============================
+      // Initialize GLightbox
+      // ============================
+      const lightbox = GLightbox({
+        selector: 'a.image, a.glightbox', // gallery + other images
+        loop: true,
+        openEffect: 'zoom',
+        closeEffect: 'fade',
+        touchNavigation: true
+      });
+
+      // ============================
+      // Gallery horizontal scroll
+      // ============================
+      const galleryContainer = document.querySelector('.gallery-container');
+      const leftArrow = document.querySelector('.gallery-arrow.left');
+      const rightArrow = document.querySelector('.gallery-arrow.right');
+
+      leftArrow.addEventListener('click', () => {
+        galleryContainer.scrollBy({ left: -300, behavior: 'smooth' });
+      });
+
+      rightArrow.addEventListener('click', () => {
+        galleryContainer.scrollBy({ left: 300, behavior: 'smooth' });
+      });
+
+      // Drag-to-scroll
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      galleryContainer.addEventListener('mousedown', (e) => {
+        isDown = true;
+        galleryContainer.classList.add('active');
+        startX = e.pageX - galleryContainer.offsetLeft;
+        scrollLeft = galleryContainer.scrollLeft;
+      });
+
+      galleryContainer.addEventListener('mouseleave', () => {
+        isDown = false;
+        galleryContainer.classList.remove('active');
+      });
+
+      galleryContainer.addEventListener('mouseup', () => {
+        isDown = false;
+        galleryContainer.classList.remove('active');
+      });
+
+      galleryContainer.addEventListener('mousemove', (e) => {
+        if(!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - galleryContainer.offsetLeft;
+        const walk = (x - startX) * 2;
+        galleryContainer.scrollLeft = scrollLeft - walk;
+      });
+    </script>
   </body>
 </html>
 
