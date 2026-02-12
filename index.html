@@ -13,7 +13,7 @@
   <body>
 
     <!-- Banner -->
-    <section id="banner" class="bg-img" data-bg="samlogoimage.jpg">
+    <section id="banner" class="bg-img" data-bg="SamEnidGlass_15.jpg">
       <div class="inner">
         <header>
           <h1>Enid Glass</h1>
@@ -28,8 +28,23 @@
       <div class="gallery-container">
         <section class="gallery style2 medium">
           <article>
-            <a href="images/SamEnidGlass_07.jpg" class="image" data-title="Image 1">
-              <img src="images/SamEnidGlass_07.jpg" alt="Image 1">
+            <a href="images/SamEnidGlass_06.jpg" class="image" data-title="Image 1">
+              <img src="images/SamEnidGlass_06.jpg" alt="Image 1">
+            </a>
+          </article>
+          <article>
+            <a href="images/SamEnidGlass_03.jpg" class="image" data-title="Image 2">
+              <img src="images/SamEnidGlass_03.jpg" alt="Image 2">
+            </a>
+          </article>
+          <article>
+            <a href="images/SamEnidGlass_18.jpg" class="image" data-title="Image 3">
+              <img src="images/SamEnidGlass_18.jpg" alt="Image 3">
+            </a>
+          </article>
+          <article>
+            <a href="images/SamEnidGlass_02.jpg" class="image" data-title="Image 1">
+              <img src="images/SamEnidGlass_02.jpg" alt="Image 1">
             </a>
           </article>
           <article>
@@ -38,41 +53,25 @@
             </a>
           </article>
           <article>
-            <a href="images/SamEnidGlass_03.jpg" class="image" data-title="Image 3">
-              <img src="images/SamEnidGlass_03.jpg" alt="Image 3">
+            <a href="images/SamEnidGlass_13.jpg" class="image" data-title="Image 3">
+              <img src="images/SamEnidGlass_13.jpg" alt="Image 3">
             </a>
           </article>
           <article>
-            <a href="images/SamEnidGlass_07.jpg" class="image" data-title="Image 1">
-              <img src="images/SamEnidGlass_07.jpg" alt="Image 1">
+            <a href="images/SamEnidGlass_19.jpg" class="image" data-title="Image 1">
+              <img src="images/SamEnidGlass_19.jpg" alt="Image 1">
             </a>
           </article>
           <article>
-            <a href="images/SamEnidGlass_10.jpg" class="image" data-title="Image 2">
-              <img src="images/SamEnidGlass_10.jpg" alt="Image 2">
-            </a>
-          </article>
-          <article>
-            <a href="images/SamEnidGlass_03.jpg" class="image" data-title="Image 3">
-              <img src="images/SamEnidGlass_03.jpg" alt="Image 3">
-            </a>
-          </article>
-          <article>
-            <a href="images/SamEnidGlass_07.jpg" class="image" data-title="Image 1">
-              <img src="images/SamEnidGlass_07.jpg" alt="Image 1">
-            </a>
-          </article>
-          <article>
-            <a href="images/SamEnidGlass_10.jpg" class="image" data-title="Image 2">
-              <img src="images/SamEnidGlass_10.jpg" alt="Image 2">
-            </a>
-          </article>
-          <article>
-            <a href="images/SamEnidGlass_03.jpg" class="image" data-title="Image 3">
-              <img src="images/SamEnidGlass_03.jpg" alt="Image 3">
+            <a href="images/SamEnidGlass_17.jpg" class="image" data-title="Image 2">
+              <img src="images/SamEnidGlass_17.jpg" alt="Image 2">
             </a>
           </article>
         </section>
+      </div>
+
+      <div class="gallery-scrollbar">
+        <div class="gallery-scrollbar-thumb"></div>
       </div>
 
       <button class="gallery-arrow right">&#10095;</button>
@@ -88,22 +87,22 @@
 
         <div class="thumbnails">
           <div class="thumb">
-            <a href="images/SamEnidGlass_08.jpg" class="glightbox" data-title="New work 1">
+            <a href="images/SamEnidGlass_08.jpg" class="glightbox">
               <img src="images/SamEnidGlass_08.jpg" alt="New work 1">
             </a>
           </div>
           <div class="thumb">
-            <a href="images/SamEnidGlass_14.jpg" class="glightbox" data-title="New work 2">
+            <a href="images/SamEnidGlass_14.jpg" class="glightbox">
               <img src="images/SamEnidGlass_14.jpg" alt="New work 2">
             </a>
           </div>
           <div class="thumb">
-            <a href="images/SamEnidGlass_17.jpg" class="glightbox" data-title="New work 3">
+            <a href="images/SamEnidGlass_17.jpg" class="glightbox">
               <img src="images/SamEnidGlass_17.jpg" alt="New work 3">
             </a>
           </div>
           <div class="thumb">
-            <a href="images/SamEnidGlass_19.jpg" class="glightbox" data-title="New work 4">
+            <a href="images/SamEnidGlass_19.jpg" class="glightbox">
               <img src="images/SamEnidGlass_19.jpg" alt="New work 4">
             </a>
           </div>
@@ -166,63 +165,7 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/glightbox.min.js"></script>
-    <script>
-      // ============================
-      // Initialize GLightbox
-      // ============================
-      const lightbox = GLightbox({
-        selector: 'a.image, a.glightbox', // gallery + other images
-        loop: true,
-        openEffect: 'zoom',
-        closeEffect: 'fade',
-        touchNavigation: true
-      });
-
-      // ============================
-      // Gallery horizontal scroll
-      // ============================
-      const galleryContainer = document.querySelector('.gallery-container');
-      const leftArrow = document.querySelector('.gallery-arrow.left');
-      const rightArrow = document.querySelector('.gallery-arrow.right');
-
-      leftArrow.addEventListener('click', () => {
-        galleryContainer.scrollBy({ left: -300, behavior: 'smooth' });
-      });
-
-      rightArrow.addEventListener('click', () => {
-        galleryContainer.scrollBy({ left: 300, behavior: 'smooth' });
-      });
-
-      // Drag-to-scroll
-      let isDown = false;
-      let startX;
-      let scrollLeft;
-
-      galleryContainer.addEventListener('mousedown', (e) => {
-        isDown = true;
-        galleryContainer.classList.add('active');
-        startX = e.pageX - galleryContainer.offsetLeft;
-        scrollLeft = galleryContainer.scrollLeft;
-      });
-
-      galleryContainer.addEventListener('mouseleave', () => {
-        isDown = false;
-        galleryContainer.classList.remove('active');
-      });
-
-      galleryContainer.addEventListener('mouseup', () => {
-        isDown = false;
-        galleryContainer.classList.remove('active');
-      });
-
-      galleryContainer.addEventListener('mousemove', (e) => {
-        if(!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - galleryContainer.offsetLeft;
-        const walk = (x - startX) * 2;
-        galleryContainer.scrollLeft = scrollLeft - walk;
-      });
-    </script>
+    <script src="assets/js/gallery.js"></script>
   </body>
 </html>
 
