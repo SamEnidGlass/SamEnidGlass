@@ -162,9 +162,14 @@
    Responsive adjustments
    ============================ */
 @media (max-width: 768px) {
-  .gallery.style2 article {
-    width: 14rem;
+  .gallery.style2 {
+    gap: 1rem;
   }
+  
+  .gallery.style2 article {
+    flex: 0 0 clamp(200px, 70vw, 300px);
+  }
+  
   .gallery-arrow {
     font-size: 1.5rem;
     padding: 0.3rem 0.8rem;
@@ -172,7 +177,26 @@
 }
 
 @media (max-width: 480px) {
+  .gallery.style2 {
+    gap: 0.5rem;
+    padding-bottom: 0;
+  }
+  
   .gallery.style2 article {
-    width: 12rem;
+    flex: 0 0 180px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .gallery.style2 .image {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .gallery.style2 .image img {
+    height: 180px;
+    width: 100%;
+    margin: 0;
+    object-fit: cover;
   }
 }

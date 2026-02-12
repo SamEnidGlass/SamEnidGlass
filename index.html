@@ -12,12 +12,53 @@
 
   <body>
 
+    <!-- Navigation -->
+    <nav id="nav-menu">
+      <ul>
+        <li><a href="#whats-new" class="scrolly">About</a></li>
+        <li><a href="#zero" class="scrolly">Gallery</a></li>
+        <li><a href="#four" class="scrolly">Bio</a></li>
+        <li><a href="#footer" class="scrolly">Contact</a></li>
+      </ul>
+    </nav>
+
     <!-- Banner -->
     <section id="banner" class="bg-img" data-bg="SamEnidGlass_15.jpg">
       <div class="inner">
         <header>
           <h1>Enid Glass</h1>
         </header>
+      </div>
+    </section>
+
+    <section id="whats-new" class="wrapper">
+      <div class="inner">
+        <header class="align-center">
+          <h2>About my work</h2>
+        </header>
+
+        <div class="thumbnails">
+          <div class="thumb">
+            <a href="images/SamEnidGlass_08.jpg" class="glightbox">
+              <img src="images/SamEnidGlass_08.jpg" alt="New work 1">
+            </a>
+          </div>
+          <div class="thumb">
+            <a href="images/SamEnidGlass_14.jpg" class="glightbox">
+              <img src="images/SamEnidGlass_14.jpg" alt="New work 2">
+            </a>
+          </div>
+          <div class="thumb">
+            <a href="images/SamEnidGlass_17.jpg" class="glightbox">
+              <img src="images/SamEnidGlass_17.jpg" alt="New work 3">
+            </a>
+          </div>
+          <div class="thumb">
+            <a href="images/SamEnidGlass_19.jpg" class="glightbox">
+              <img src="images/SamEnidGlass_19.jpg" alt="New work 4">
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -72,38 +113,6 @@
 
       <button class="gallery-arrow right">&#10095;</button>
 
-    </section>
-
-    <!-- What's New Section -->
-    <section id="whats-new" class="wrapper">
-      <div class="inner">
-        <header class="align-center">
-          <h2>About my work</h2>
-        </header>
-
-        <div class="thumbnails">
-          <div class="thumb">
-            <a href="images/SamEnidGlass_08.jpg" class="glightbox">
-              <img src="images/SamEnidGlass_08.jpg" alt="New work 1">
-            </a>
-          </div>
-          <div class="thumb">
-            <a href="images/SamEnidGlass_14.jpg" class="glightbox">
-              <img src="images/SamEnidGlass_14.jpg" alt="New work 2">
-            </a>
-          </div>
-          <div class="thumb">
-            <a href="images/SamEnidGlass_17.jpg" class="glightbox">
-              <img src="images/SamEnidGlass_17.jpg" alt="New work 3">
-            </a>
-          </div>
-          <div class="thumb">
-            <a href="images/SamEnidGlass_19.jpg" class="glightbox">
-              <img src="images/SamEnidGlass_19.jpg" alt="New work 4">
-            </a>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- Four -->
@@ -216,6 +225,34 @@
         const x = e.pageX - galleryContainer.offsetLeft;
         const walk = (x - startX) * 2;
         galleryContainer.scrollLeft = scrollLeft - walk;
+      });
+
+      // ============================
+      // Nav Menu Auto-hide on scroll
+      // ============================
+      const navMenu = document.querySelector('#nav-menu');
+      let scrollTimeout;
+      let lastScrollTop = 0;
+
+      window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        // Hide nav when scrolling down, show when scrolling up
+        if (currentScroll > lastScrollTop && currentScroll > 0) {
+          navMenu.classList.add('hidden');
+        } else {
+          navMenu.classList.remove('hidden');
+        }
+
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+
+        // Clear existing timeout
+        clearTimeout(scrollTimeout);
+
+        // Show nav after 5 seconds of no scrolling
+        scrollTimeout = setTimeout(() => {
+          navMenu.classList.remove('hidden');
+        }, 5000);
       });
     </script>
   </body>

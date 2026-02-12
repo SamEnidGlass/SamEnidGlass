@@ -106,7 +106,11 @@
 		// Scrolly.
 			if ( $( ".scrolly" ).length ) {
 
-				$('.scrolly').scrolly();
+				$('.scrolly').scrolly({
+					offset: function() {
+						return $('#nav-menu').outerHeight();
+					}
+				});
 			}
 
 		// Menu.
