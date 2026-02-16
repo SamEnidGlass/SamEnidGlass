@@ -4279,7 +4279,7 @@
 
 	#footer {
 		background-color: #3eb29d;
-		color: #3eb29d;
+		color: #ffffff;
 		padding: 6em 0 4em 0;
 		background: #3eb29d;
 	}
@@ -4457,6 +4457,10 @@
 
 		#footer header p {
 			color: #ffffff;
+		}
+
+		#footer p {
+			text-align: center;
 		}
 
 		#footer table tbody tr {
