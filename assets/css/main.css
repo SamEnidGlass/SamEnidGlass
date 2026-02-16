@@ -2726,6 +2726,11 @@
 		text-align: center;
 	}
 
+	/* Make the #zero section background white */
+	/* #zero {
+	background: #fff !important;
+	} */
+
 	header p {
 		position: relative;
 		margin: 0 0 1.5em 0;

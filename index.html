@@ -66,6 +66,10 @@
 
       <button class="gallery-arrow left">&#10094;</button>
 
+      <header>
+        <h2>Gallery</h2>
+      </header>
+
       <div class="gallery-container">
         <section class="gallery style2 medium">
           <article>
@@ -192,12 +196,31 @@
         touchNavigation: true
       });
 
+
       // ============================
-      // Gallery horizontal scroll
+      // Gallery horizontal scroll & arrow visibility
       // ============================
       const galleryContainer = document.querySelector('.gallery-container');
       const leftArrow = document.querySelector('.gallery-arrow.left');
       const rightArrow = document.querySelector('.gallery-arrow.right');
+
+      function updateArrowVisibility() {
+        // Allow a small threshold for floating point errors
+        const threshold = 5;
+        if (galleryContainer.scrollLeft <= threshold) {
+          leftArrow.style.display = 'none';
+        } else {
+          leftArrow.style.display = '';
+        }
+        if (galleryContainer.scrollLeft + galleryContainer.clientWidth >= galleryContainer.scrollWidth - threshold) {
+          rightArrow.style.display = 'none';
+        } else {
+          rightArrow.style.display = '';
+        }
+      }
+
+      // Initial check
+      updateArrowVisibility();
 
       leftArrow.addEventListener('click', () => {
         galleryContainer.scrollBy({ left: -300, behavior: 'smooth' });
@@ -206,6 +229,9 @@
       rightArrow.addEventListener('click', () => {
         galleryContainer.scrollBy({ left: 300, behavior: 'smooth' });
       });
+
+      // Update arrow visibility after scroll
+      galleryContainer.addEventListener('scroll', updateArrowVisibility);
 
       // Drag-to-scroll
       let isDown = false;
@@ -236,6 +262,9 @@
         const walk = (x - startX) * 2;
         galleryContainer.scrollLeft = scrollLeft - walk;
       });
+
+      // On window resize, recheck arrow visibility
+      window.addEventListener('resize', updateArrowVisibility);
 
       // ============================
       // Nav Menu Auto-hide on scroll
