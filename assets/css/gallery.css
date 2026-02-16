@@ -189,20 +189,27 @@
   }
   
   .gallery.style2 article {
-    flex: 0 0 180px;
-    margin: 0;
-    padding: 0;
+    flex: 0 0 auto;
+    height: 420px;            /* Choose your uniform height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  
+
+  /* Image wrapper */
   .gallery.style2 .image {
-    margin: 0;
-    padding: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  
+
+  /* Actual image */
   .gallery.style2 .image img {
-    height: 300px;
-    width: 100%;
-    margin: 0;
-    object-fit: cover;
+    max-height: 100%;
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    object-fit: contain;   /* shows full image */
   }
 }
