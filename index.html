@@ -8,6 +8,29 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/gallery.css">
     <link rel="stylesheet" href="assets/css/glightbox.min.css">
+      <style>
+        /* Force override for GLightbox captions */
+        .glightbox-container .gslide-description,
+        .glightbox-container .gslide-title {
+          background: rgba(30, 30, 30, 0.92) !important;
+          color: #fff !important;
+          font-size: 1em !important;
+          padding: 18px 28px !important;
+          border-radius: 10px !important;
+          max-width: 90% !important;
+          margin: 0 auto 28px auto !important;
+          /* box-shadow: 0 6px 32px rgba(0,0,0,0.35) !important; */
+          text-align: center !important;
+          font-family: 'Segoe UI', 'Arial', sans-serif !important;
+          letter-spacing: 0.03em !important;
+        }
+        .glightbox-container .gslide-title {
+          font-weight: bold !important;
+          font-size: 1.35em !important;
+          color: #ffe066 !important;
+          text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        }
+      </style>
   </head>
 
   <body>
@@ -23,7 +46,7 @@
     </nav>
 
     <!-- Banner -->
-    <section id="banner" class="bg-img" data-bg="SamEnidGlass_15.jpg">
+    <section id="banner" class="bg-img" data-bg="SamEnidGlass_10.jpg">
       <div class="inner">
         <header>
           <h1>Enid Glass</h1>
@@ -62,18 +85,29 @@
       </div>
     </section>
 
+    <section id="color-break-one" class="wrapper">
+      <div class="inner">
+      </div>
+    </section>
+
     <section id="zero" class="gallery-wrapper">
 
       <button class="gallery-arrow left">&#10094;</button>
 
-      <header>
+
+      <header class="center-text">
         <h2>Gallery</h2>
       </header>
+
+      <p class="center-text">Take a look at a selection of my recent work!<br>
+        Each piece is hand made in Providence, RI and is completely one of a kind.<br>
+        If you're interested in a custom piece or see something you like, please reach out through the contact form below!
+      </p>
 
       <div class="gallery-container">
         <section class="gallery style2 medium">
           <article>
-            <a href="images/SamEnidGlass_06.jpg" class="image" data-title="Image 1">
+            <a href="images/SamEnidGlass_06.jpg" class="image" data-title="Image 01000">
               <img src="images/SamEnidGlass_06.jpg" alt="Image 1">
             </a>
           </article>
@@ -141,9 +175,9 @@
       <div class="inner">
         <h2>Get in touch!</h2>
         <p>
-          If you're interested in a custom glass piece or have any questions, please feel free to reach out!<br>
-          You don't need to have everything figured out before reaching out! Maybe its just the beginning of an idea, or you have a clear design in mind.<br>
-          I will get back to you within 24 hours! Thank you for your interest!
+          If you're interested in a custom glass piece or have any questions, send me a message!<br>
+          You don't need to have everything figured out before getting in touch! Maybe its just the beginning of an idea, or you have a clear design in mind.<br>
+          I will get back to you within 24 hours, I'm excited to create with you!
         </p>
 
         <form action="https://formsubmit.co/ajax/samenidglass@gmail.com" method="POST">
@@ -227,7 +261,12 @@
       });
 
       rightArrow.addEventListener('click', () => {
-        galleryContainer.scrollBy({ left: 300, behavior: 'smooth' });
+        // Calculate the max scrollLeft
+        const maxScrollLeft = galleryContainer.scrollWidth - galleryContainer.clientWidth;
+        const remaining = maxScrollLeft - galleryContainer.scrollLeft;
+        // If less than 300px left, only scroll the remaining distance
+        const scrollAmount = remaining < 300 ? remaining : 300;
+        galleryContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
       });
 
       // Update arrow visibility after scroll

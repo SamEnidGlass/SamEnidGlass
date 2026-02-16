@@ -1,3 +1,7 @@
+/* Center text utility for gallery section */
+.center-text {
+  text-align: center;
+}
 /* ============================
    Gallery Wrapper
    ============================ */
@@ -95,7 +99,7 @@
    ============================ */
 .gallery-arrow {
   position: absolute;
-  top: 50%;
+  top: 65%;
   transform: translateY(-50%);
   z-index: 10;
   background: rgba(0, 0, 0, 0.4); /* slightly transparent */

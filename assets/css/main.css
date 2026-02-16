@@ -2726,10 +2726,15 @@
 		text-align: center;
 	}
 
-	/* Make the #zero section background white */
-	/* #zero {
-	background: #fff !important;
-	} */
+	#color-break-one {
+		background: #025043;
+	}
+
+	#zero h2 + p {
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
 
 	header p {
 		position: relative;
