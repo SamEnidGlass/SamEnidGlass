@@ -38,9 +38,9 @@
     <!-- Navigation -->
     <nav id="nav-menu">
       <ul>
-        <li><a href="#whats-new" class="scrolly">About</a></li>
-        <li><a href="#zero" class="scrolly">Gallery</a></li>
-        <li><a href="#four" class="scrolly">Bio</a></li>
+        <li><a href="#first-color-break" class="scrolly">Gallery</a></li>
+        <li><a href="#second-color-break" class="scrolly">About</a></li>
+        <li><a href="#third-color-break" class="scrolly">Bio</a></li>
         <li><a href="#footer" class="scrolly">Contact</a></li>
       </ul>
     </nav>
@@ -54,38 +54,7 @@
       </div>
     </section>
 
-    <section id="whats-new" class="wrapper">
-      <div class="inner">
-        <header class="align-center">
-          <h2>About my work</h2>
-        </header>
-
-        <div class="thumbnails">
-          <div class="thumb">
-            <a href="images/SamEnidGlass_08.jpg" class="glightbox">
-              <img src="images/SamEnidGlass_08.jpg" alt="New work 1">
-            </a>
-          </div>
-          <div class="thumb">
-            <a href="images/SamEnidGlass_14.jpg" class="glightbox">
-              <img src="images/SamEnidGlass_14.jpg" alt="New work 2">
-            </a>
-          </div>
-          <div class="thumb">
-            <a href="images/SamEnidGlass_17.jpg" class="glightbox">
-              <img src="images/SamEnidGlass_17.jpg" alt="New work 3">
-            </a>
-          </div>
-          <div class="thumb">
-            <a href="images/SamEnidGlass_19.jpg" class="glightbox">
-              <img src="images/SamEnidGlass_19.jpg" alt="New work 4">
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="color-break-one" class="wrapper">
+    <section id="first-color-break" class="wrapper">
       <div class="inner">
       </div>
     </section>
@@ -148,27 +117,85 @@
           </article>
         </section>
       </div>
-
       <button class="gallery-arrow right">&#10095;</button>
-
     </section>
 
-    <!-- Four -->
-    <section id="four" class="wrapper post bg-img" data-bg="SamBioPic.jpg">
+    <section id="second-color-break" class="wrapper">
+      <div class="inner">
+      </div>
+    </section>
+
+    <section id="about" class="wrapper post bg-img" data-bg="SamEnidGlass_15.jpg">
       <div class="inner">
         <article class="box">
           <header>
-            <h2>Bio</h2>
+            <h2>About My Work</h2>
           </header>
 
           <div class="content">
             <p>
-              Bio here
+              Uh-huh
+              It's dinner time on Friday night and I've been good all week
+              My body's ready, I'm getting it, something good to eat
+              Don't want Italian, Indian, Portuguese, or Greek
+              I have something tastier in mind
+              I hop the bus and now I'm rushing down to Chinatown (oh-oh)
+              I tell the driver, "Put the pedal to the medal now" (oh-oh)
+              T-minus eleven minutes until we're touching down
+              Fantasizing about my first bite
+              Oh, and my tummy's rumblin', there's nothing in there
+              But tell me if you want some they make it to share
+              And you could live a long life, baby but
+              You haven't lived until you go
+              I know that it might sound crazy but
+              My favorite place on earth is Dim Sum Paradise
             </p>
           </div>
         </article>
       </div>
     </section>
+
+    <section id="third-color-break" class="wrapper">
+      <div class="inner">
+      </div>
+    </section>
+
+    <!-- Four -->
+    <section id="bio" class="wrapper post bg-img" data-bg="SamEnidGlass_20.jpg">
+      <div class="inner">
+        <article class="box">
+          <header>
+            <h2>About Me</h2>
+          </header>
+
+          <div class="content">
+            <p>
+              Uh-huh
+              It's dinner time on Friday night and I've been good all week
+              My body's ready, I'm getting it, something good to eat
+              Don't want Italian, Indian, Portuguese, or Greek
+              I have something tastier in mind
+              I hop the bus and now I'm rushing down to Chinatown (oh-oh)
+              I tell the driver, "Put the pedal to the medal now" (oh-oh)
+              T-minus eleven minutes until we're touching down
+              Fantasizing about my first bite
+              Oh, and my tummy's rumblin', there's nothing in there
+              But tell me if you want some they make it to share
+              And you could live a long life, baby but
+              You haven't lived until you go
+              I know that it might sound crazy but
+              My favorite place on earth is Dim Sum Paradise
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="fourth-color-break" class="wrapper">
+      <div class="inner">
+      </div>
+    </section>
+
 
     <!-- Footer -->
     <footer id="footer">
@@ -230,80 +257,78 @@
         touchNavigation: true
       });
 
-
       // ============================
-      // Gallery horizontal scroll & arrow visibility
+      // Multi-gallery support
       // ============================
-      const galleryContainer = document.querySelector('.gallery-container');
-      const leftArrow = document.querySelector('.gallery-arrow.left');
-      const rightArrow = document.querySelector('.gallery-arrow.right');
+      document.querySelectorAll('.gallery-wrapper').forEach(wrapper => {
+        const galleryContainer = wrapper.querySelector('.gallery-container');
+        const leftArrow = wrapper.querySelector('.gallery-arrow.left');
+        const rightArrow = wrapper.querySelector('.gallery-arrow.right');
+        if (!galleryContainer || !leftArrow || !rightArrow) return;
 
-      function updateArrowVisibility() {
-        // Allow a small threshold for floating point errors
-        const threshold = 5;
-        if (galleryContainer.scrollLeft <= threshold) {
-          leftArrow.style.display = 'none';
-        } else {
-          leftArrow.style.display = '';
+        function updateArrowVisibility() {
+          const threshold = 5;
+          if (galleryContainer.scrollLeft <= threshold) {
+            leftArrow.style.display = 'none';
+          } else {
+            leftArrow.style.display = '';
+          }
+          if (galleryContainer.scrollLeft + galleryContainer.clientWidth >= galleryContainer.scrollWidth - threshold) {
+            rightArrow.style.display = 'none';
+          } else {
+            rightArrow.style.display = '';
+          }
         }
-        if (galleryContainer.scrollLeft + galleryContainer.clientWidth >= galleryContainer.scrollWidth - threshold) {
-          rightArrow.style.display = 'none';
-        } else {
-          rightArrow.style.display = '';
-        }
-      }
 
-      // Initial check
-      updateArrowVisibility();
+        // Initial check
+        updateArrowVisibility();
 
-      leftArrow.addEventListener('click', () => {
-        galleryContainer.scrollBy({ left: -300, behavior: 'smooth' });
+        leftArrow.addEventListener('click', () => {
+          galleryContainer.scrollBy({ left: -300, behavior: 'smooth' });
+        });
+
+        rightArrow.addEventListener('click', () => {
+          const maxScrollLeft = galleryContainer.scrollWidth - galleryContainer.clientWidth;
+          const remaining = maxScrollLeft - galleryContainer.scrollLeft;
+          const scrollAmount = remaining < 300 ? remaining : 300;
+          galleryContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+
+        galleryContainer.addEventListener('scroll', updateArrowVisibility);
+
+        // Drag-to-scroll
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        galleryContainer.addEventListener('mousedown', (e) => {
+          isDown = true;
+          galleryContainer.classList.add('active');
+          startX = e.pageX - galleryContainer.offsetLeft;
+          scrollLeft = galleryContainer.scrollLeft;
+        });
+
+        galleryContainer.addEventListener('mouseleave', () => {
+          isDown = false;
+          galleryContainer.classList.remove('active');
+        });
+
+        galleryContainer.addEventListener('mouseup', () => {
+          isDown = false;
+          galleryContainer.classList.remove('active');
+        });
+
+        galleryContainer.addEventListener('mousemove', (e) => {
+          if(!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - galleryContainer.offsetLeft;
+          const walk = (x - startX) * 2;
+          galleryContainer.scrollLeft = scrollLeft - walk;
+        });
+
+        // On window resize, recheck arrow visibility for this gallery
+        window.addEventListener('resize', updateArrowVisibility);
       });
-
-      rightArrow.addEventListener('click', () => {
-        // Calculate the max scrollLeft
-        const maxScrollLeft = galleryContainer.scrollWidth - galleryContainer.clientWidth;
-        const remaining = maxScrollLeft - galleryContainer.scrollLeft;
-        // If less than 300px left, only scroll the remaining distance
-        const scrollAmount = remaining < 300 ? remaining : 300;
-        galleryContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-      });
-
-      // Update arrow visibility after scroll
-      galleryContainer.addEventListener('scroll', updateArrowVisibility);
-
-      // Drag-to-scroll
-      let isDown = false;
-      let startX;
-      let scrollLeft;
-
-      galleryContainer.addEventListener('mousedown', (e) => {
-        isDown = true;
-        galleryContainer.classList.add('active');
-        startX = e.pageX - galleryContainer.offsetLeft;
-        scrollLeft = galleryContainer.scrollLeft;
-      });
-
-      galleryContainer.addEventListener('mouseleave', () => {
-        isDown = false;
-        galleryContainer.classList.remove('active');
-      });
-
-      galleryContainer.addEventListener('mouseup', () => {
-        isDown = false;
-        galleryContainer.classList.remove('active');
-      });
-
-      galleryContainer.addEventListener('mousemove', (e) => {
-        if(!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - galleryContainer.offsetLeft;
-        const walk = (x - startX) * 2;
-        galleryContainer.scrollLeft = scrollLeft - walk;
-      });
-
-      // On window resize, recheck arrow visibility
-      window.addEventListener('resize', updateArrowVisibility);
 
       // ============================
       // Nav Menu Auto-hide on scroll

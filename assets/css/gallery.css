@@ -1,5 +1,7 @@
 /* Center text utility for gallery section */
 .center-text {
+  margin-left: 10vw;
+  margin-right: 10vw;
   text-align: center;
 }
 /* ============================
@@ -87,7 +89,7 @@
 /* Actual image */
 .gallery.style2 .image img {
   display: block;
-  height: clamp(180px, 30vw, 300px);
+  height: clamp(280px, 35vw, 450px);
   width: auto;
   pointer-events: none; /* Prevent image drag ghosting */
   user-select: none;
@@ -198,7 +200,7 @@
   }
   
   .gallery.style2 .image img {
-    height: 180px;
+    height: 300px;
     width: 100%;
     margin: 0;
     object-fit: cover;

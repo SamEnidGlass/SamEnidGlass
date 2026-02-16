@@ -2726,8 +2726,32 @@
 		text-align: center;
 	}
 
-	#color-break-one {
+	#first-color-break {
 		background: #025043;
+		width: 100% !important;
+		left: 0;
+		position: relative;
+	}
+
+	#second-color-break {
+		background: #075749;
+		width: 100% !important;
+		left: 0;
+		position: relative;
+	}
+
+	#third-color-break {
+		background: #2c8880;
+		width: 100% !important;
+		left: 0;
+		position: relative;
+	}
+
+	#fourth-color-break {
+		background: #00332f;
+		width: 100% !important;
+		left: 0;
+		position: relative;
 	}
 
 	#zero h2 + p {
@@ -3297,11 +3321,11 @@
 		opacity: 1;
 	}
 
-	#nav-menu.hidden {
+	/* #nav-menu.hidden {
 		transform: translateY(-100%);
 		opacity: 0;
 		pointer-events: none;
-	}
+	} */
 
 	#nav-menu ul {
 		display: flex;
@@ -3330,8 +3354,8 @@
 	}
 
 	#nav-menu a:hover {
-		color: #F64747;
-		border-bottom-color: #F64747;
+		color: #10cfff;
+		border-bottom-color: #10cfff;
 	}
 
 	html {
@@ -3748,6 +3772,12 @@
 			font-size: 1.75em;
 		}
 
+		/* fixes awkward alignment issues with banner being off center */
+		#banner.bg-img, .bg-img {
+			width: 100% !important;
+			left: 0;
+			position: relative;
+		}
 	@-moz-keyframes more {
 		0% {
 			bottom: -3em;
