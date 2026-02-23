@@ -414,24 +414,21 @@
       });
     </script>
     <script>
-    // ----------------------------
-    // 1. Landmark Roles (Non-invasive)
-    // ----------------------------
+    /* ============================
+      SAFE ACCESSIBILITY SCRIPT
+      (Zero interference version)
+    ============================ */
+
+    // Landmark roles
     document.querySelector('#nav-menu')?.setAttribute('role', 'navigation');
     document.querySelector('#nav-menu')?.setAttribute('aria-label', 'Primary navigation');
 
     document.querySelector('#banner')?.setAttribute('role', 'banner');
     document.querySelector('#footer')?.setAttribute('role', 'contentinfo');
 
-    // Use ARIA main instead of DOM restructuring
-    const mainSection = document.querySelector('#zero');
-    if (mainSection) {
-      mainSection.setAttribute('role', 'main');
-    }
+    document.querySelector('#zero')?.setAttribute('role', 'main');
 
-    // ----------------------------
-    // 2. Gallery Arrow Accessibility
-    // ----------------------------
+    // Gallery arrow labels
     document.querySelectorAll('.gallery-arrow.left').forEach(btn => {
       btn.setAttribute('aria-label', 'Scroll gallery left');
     });
@@ -440,7 +437,7 @@
       btn.setAttribute('aria-label', 'Scroll gallery right');
     });
 
-    // Keyboard support for arrows
+    // Keyboard activation for arrows
     document.querySelectorAll('.gallery-arrow').forEach(btn => {
       btn.addEventListener('keydown', function(e) {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -448,17 +445,12 @@
           btn.click();
         }
       });
-    });
 
-    // Ensure minimum touch target size (JS safe fallback)
-    document.querySelectorAll('.gallery-arrow').forEach(btn => {
       btn.style.minWidth = "48px";
       btn.style.minHeight = "48px";
     });
 
-    // ----------------------------
-    // 3. Gallery Image Labels
-    // ----------------------------
+    // Gallery image labels
     document.querySelectorAll('.gallery a.image').forEach(link => {
       const title = link.getAttribute('data-title');
       if (title) {
@@ -466,38 +458,11 @@
       }
     });
 
-    // ----------------------------
-    // 4. Active Section Detection (aria-current)
-    // ----------------------------
-    // Accessible active link based on URL hash (non-breaking)
-    const navLinks = document.querySelectorAll('#nav-menu a');
-
-    function updateAriaCurrent() {
-      const currentHash = window.location.hash;
-
-      navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentHash) {
-          link.setAttribute('aria-current', 'page');
-        } else {
-          link.removeAttribute('aria-current');
-        }
-      });
-    }
-
-// Run on page load
-updateAriaCurrent();
-
-// Run when hash changes
-window.addEventListener('hashchange', updateAriaCurrent);
-
-    // ----------------------------
-    // 5. Accessible Form Feedback
-    // ----------------------------
+    // Accessible form enhancements
     const ariaForm = document.querySelector("form");
 
     if (ariaForm) {
 
-      // Add live region
       const liveRegion = document.createElement('div');
       liveRegion.setAttribute('aria-live', 'polite');
       liveRegion.setAttribute('role', 'status');
@@ -505,16 +470,13 @@ window.addEventListener('hashchange', updateAriaCurrent);
       liveRegion.style.left = '-9999px';
       ariaForm.appendChild(liveRegion);
 
-      // Add autocomplete attributes
       document.getElementById('name')?.setAttribute('autocomplete', 'name');
       document.getElementById('email')?.setAttribute('autocomplete', 'email');
 
-      // Announce submission start
       ariaForm.addEventListener("submit", function() {
         liveRegion.textContent = "Sending message...";
       });
 
-      // Observe button text changes from your existing fetch logic
       const button = ariaForm.querySelector("input[type='submit']");
 
       if (button) {
@@ -530,13 +492,6 @@ window.addEventListener('hashchange', updateAriaCurrent);
 
         observer.observe(button, { attributes: true, attributeFilter: ['value'] });
       }
-    }
-
-    // ----------------------------
-    // 6. Respect Reduced Motion Preference
-    // ----------------------------
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.documentElement.style.scrollBehavior = 'auto';
     }
     </script>
   </body>
