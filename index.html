@@ -1,10 +1,11 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
   <head>
     <title>Enid Glass</title>
     <meta charset="utf-8">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Handmade sculptural and functional glass art by Enid Glass in Providence, Rhode Island. Custom commissions available.">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/gallery.css">
     <link rel="stylesheet" href="assets/css/glightbox.min.css">
@@ -43,6 +44,8 @@
   </head>
 
   <body>
+    <!-- Accessibility: Skip to Main Content -->
+    <a href="#zero" class="skip-link">Skip to main content</a>
 
     <!-- Navigation -->
     <nav id="nav-menu">
@@ -86,67 +89,67 @@
         <section class="gallery style2 medium">
           <article>
             <a href="images/SamEnidGlass_02.jpg" class="image" data-title="Three Stem Glass and Pitcher">
-              <img src="images/SamEnidGlass_02.jpg" alt="Image 1">
+              <img src="images/SamEnidGlass_02.jpg" alt="Three Stem Glass and Pitcher">
             </a>
           </article>
           <article>
             <a href="images/SamEnidGlass_01.jpg" class="image" data-title="Multi-color Pumpkin variety">
-              <img src="images/SamEnidGlass_01.jpg" alt="Image 2">
+              <img src="images/SamEnidGlass_01.jpg" alt="Multi-color Pumpkin variety">
             </a>
           </article>
           <article>
             <a href="images/SamEnidGlass_13.jpg" class="image" data-title="Optic Catch-All Dish and Mini Vase">
-              <img src="images/SamEnidGlass_13.jpg" alt="Image 3">
+              <img src="images/SamEnidGlass_13.jpg" alt="Optic Catch-All Dish and Mini Vase">
             </a>
           </article>
           <article>
             <a href="images/SamEnidGlass_18.jpg" class="image" data-title="Straight Stem 10 Petal Flowers">
-              <img src="images/SamEnidGlass_18.jpg" alt="Image 1">
+              <img src="images/SamEnidGlass_18.jpg" alt="Straight Stem 10 Petal Flowers">
             </a>
           </article>
           <article>
             <a href="images/SamEnidGlass_11.jpg" class="image" data-title="Cereal Bowl with attached Glass Straw">
-              <img src="images/SamEnidGlass_11.jpg" alt="Image 2">
+              <img src="images/SamEnidGlass_11.jpg" alt="Cereal Bowl with attached Glass Straw">
             </a>
           </article>
           <article>
             <a href="images/SamEnidGlass_16.jpg" class="image" data-title="Pitcher and Cup set, Blue">
-              <img src="images/SamEnidGlass_16.jpg" alt="Image 3">
+              <img src="images/SamEnidGlass_16.jpg" alt="Pitcher and Cup set, Blue">
             </a>
           </article>
           <article>
             <a href="images/SamEnidGlass_08.jpg" class="image" data-title="Sculpted Striped Elephant and Grey Cat">
-              <img src="images/SamEnidGlass_08.jpg" alt="Image 1">
+              <img src="images/SamEnidGlass_08.jpg" alt="Sculpted Striped Elephant and Grey Cat">
             </a>
           </article>
           <article>
             <a href="images/SamEnidGlass_14.jpg" class="image" data-title="Heart shaped Catch-All with Multi-colored Ring Holder Dishes">
-              <img src="images/SamEnidGlass_14.jpg" alt="Image 2">
+              <img src="images/SamEnidGlass_14.jpg" alt="Heart shaped Catch-All with Multi-colored Ring Holder Dishes">
             </a>
           </article>
           <article>
             <a href="images/SamEnidGlass_19.jpg" class="image" data-title="Snake Stem 10 Petal Flowers">
-              <img src="images/SamEnidGlass_19.jpg" alt="Image 1">
+              <img src="images/SamEnidGlass_19.jpg" alt="Snake Stem 10 Petal Flowers">
             </a>
           </article>
           <article>
             <a href="images/SamEnidGlass_17.jpg" class="image" data-title="Assortment of cups: Various Colors and Styles">
-              <img src="images/SamEnidGlass_17.jpg" alt="Image 2">
+              <img src="images/SamEnidGlass_17.jpg" alt="Assortment of cups: Various Colors and Styles">
             </a>
           </article>
           <article>
             <a href="images/SamEnidGlass_06.jpg" class="image" data-title="Signature 'Sassy' Vase with Striaght Stem 5 Petal Flower">
-              <img src="images/SamEnidGlass_06.jpg" alt="Image 3">
+              <img src="images/SamEnidGlass_06.jpg" alt="Signature 'Sassy' Vase with Striaght Stem 5 Petal Flower">
             </a>
           </article>
           <article>
             <a href="images/SamEnidGlass_03.jpg" class="image" data-title="White Vase with Butterflies">
-              <img src="images/SamEnidGlass_03.jpg" alt="Image 1">
+              <img src="images/SamEnidGlass_03.jpg" alt="White Vase with Butterflies">
             </a>
           </article>
           <article>
             <a href="images/SamEnidGlass_20.jpg" class="image" data-title="Cereal Bowl and Snake Stem 10 Petal Flower">
-              <img src="images/SamEnidGlass_20.jpg" alt="Image 2">
+              <img src="images/SamEnidGlass_20.jpg" alt="Cereal Bowl and Snake Stem 10 Petal Flower">
             </a>
           </article>
         </section>
@@ -409,6 +412,132 @@
           button.disabled = false;
         });
       });
+    </script>
+    <script>
+    // ----------------------------
+    // 1. Landmark Roles (Non-invasive)
+    // ----------------------------
+    document.querySelector('#nav-menu')?.setAttribute('role', 'navigation');
+    document.querySelector('#nav-menu')?.setAttribute('aria-label', 'Primary navigation');
+
+    document.querySelector('#banner')?.setAttribute('role', 'banner');
+    document.querySelector('#footer')?.setAttribute('role', 'contentinfo');
+
+    // Use ARIA main instead of DOM restructuring
+    const mainSection = document.querySelector('#zero');
+    if (mainSection) {
+      mainSection.setAttribute('role', 'main');
+    }
+
+    // ----------------------------
+    // 2. Gallery Arrow Accessibility
+    // ----------------------------
+    document.querySelectorAll('.gallery-arrow.left').forEach(btn => {
+      btn.setAttribute('aria-label', 'Scroll gallery left');
+    });
+
+    document.querySelectorAll('.gallery-arrow.right').forEach(btn => {
+      btn.setAttribute('aria-label', 'Scroll gallery right');
+    });
+
+    // Keyboard support for arrows
+    document.querySelectorAll('.gallery-arrow').forEach(btn => {
+      btn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          btn.click();
+        }
+      });
+    });
+
+    // Ensure minimum touch target size (JS safe fallback)
+    document.querySelectorAll('.gallery-arrow').forEach(btn => {
+      btn.style.minWidth = "48px";
+      btn.style.minHeight = "48px";
+    });
+
+    // ----------------------------
+    // 3. Gallery Image Labels
+    // ----------------------------
+    document.querySelectorAll('.gallery a.image').forEach(link => {
+      const title = link.getAttribute('data-title');
+      if (title) {
+        link.setAttribute('aria-label', title);
+      }
+    });
+
+    // ----------------------------
+    // 4. Active Section Detection (aria-current)
+    // ----------------------------
+    // Accessible active link based on URL hash (non-breaking)
+    const navLinks = document.querySelectorAll('#nav-menu a');
+
+    function updateAriaCurrent() {
+      const currentHash = window.location.hash;
+
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentHash) {
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    }
+
+// Run on page load
+updateAriaCurrent();
+
+// Run when hash changes
+window.addEventListener('hashchange', updateAriaCurrent);
+
+    // ----------------------------
+    // 5. Accessible Form Feedback
+    // ----------------------------
+    const ariaForm = document.querySelector("form");
+
+    if (ariaForm) {
+
+      // Add live region
+      const liveRegion = document.createElement('div');
+      liveRegion.setAttribute('aria-live', 'polite');
+      liveRegion.setAttribute('role', 'status');
+      liveRegion.style.position = 'absolute';
+      liveRegion.style.left = '-9999px';
+      ariaForm.appendChild(liveRegion);
+
+      // Add autocomplete attributes
+      document.getElementById('name')?.setAttribute('autocomplete', 'name');
+      document.getElementById('email')?.setAttribute('autocomplete', 'email');
+
+      // Announce submission start
+      ariaForm.addEventListener("submit", function() {
+        liveRegion.textContent = "Sending message...";
+      });
+
+      // Observe button text changes from your existing fetch logic
+      const button = ariaForm.querySelector("input[type='submit']");
+
+      if (button) {
+        const observer = new MutationObserver(() => {
+          if (button.value === "Thank you!") {
+            liveRegion.textContent = "Message sent successfully.";
+          }
+
+          if (button.value === "Error. Try again.") {
+            liveRegion.textContent = "There was an error sending your message.";
+          }
+        });
+
+        observer.observe(button, { attributes: true, attributeFilter: ['value'] });
+      }
+    }
+
+    // ----------------------------
+    // 6. Respect Reduced Motion Preference
+    // ----------------------------
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.style.scrollBehavior = 'auto';
+    }
     </script>
   </body>
 </html>

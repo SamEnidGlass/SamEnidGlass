@@ -4663,3 +4663,47 @@ img {
     flex-direction: column;
   }
 }
+
+/* ============================
+   ACCESSIBILITY IMPROVEMENTS
+============================ */
+
+/* Skip link styling */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 10px;
+  background: #000;
+  color: #fff;
+  padding: 8px 14px;
+  z-index: 10000;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.skip-link:focus {
+  top: 10px;
+}
+
+/* Focus visibility */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Improve button accessibility */
+.gallery-arrow {
+  cursor: pointer;
+}
