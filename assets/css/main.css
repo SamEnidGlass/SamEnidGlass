@@ -2732,28 +2732,28 @@
 	}
 
 	#first-color-break {
-		background: #025043;
+		background: #20b49c;
 		width: 100% !important;
 		left: 0;
 		position: relative;
 	}
 
 	#second-color-break {
-		background: #075749;
+		background: #20b49c;
 		width: 100% !important;
 		left: 0;
 		position: relative;
 	}
 
 	#third-color-break {
-		background: #2c8880;
+		background: #20b49c;
 		width: 100% !important;
 		left: 0;
 		position: relative;
 	}
 
 	#fourth-color-break {
-		background: #00332f;
+		background: #20b49c;
 		width: 100% !important;
 		left: 0;
 		position: relative;
@@ -4323,10 +4323,10 @@
 /* Footer */
 
 	#footer {
-		background-color: #3eb29d;
+		background-color: #20b49c;
 		color: #ffffff;
 		padding: 6em 0 4em 0;
-		background: #3eb29d;
+		background: #20b49c;
 	}
 
 		#footer input, #footer select, #footer textarea {
