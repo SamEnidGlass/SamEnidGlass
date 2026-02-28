@@ -2759,6 +2759,21 @@
 		position: relative;
 	}
 
+	#fifth-color-break {
+		background: #20b49c;
+		width: 100% !important;
+		left: 0;
+		position: relative;
+	}
+
+	#upcoming {
+		text-align: center;
+	}
+
+	#upcoming > ul {
+		display: inline-block;
+	}
+
 	#zero h2 + p {
 		text-align: center;
 		margin-left: auto;
