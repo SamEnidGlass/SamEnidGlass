@@ -81,7 +81,7 @@
         <h2>Gallery</h2>
       </header>
 
-      <p class="center-text">Take a look at a selection of my recent work!<br>
+      <p class="center-text">Swipe through a selection of my recent work!<br>
         Each piece is hand made in Providence, RI and is completely one of a kind.<br>
         If you're interested in a custom piece or see something you like, please reach out through the contact form below!
       </p>
@@ -340,47 +340,47 @@
         updateArrowVisibility();
 
         leftArrow.addEventListener('click', () => {
-          galleryContainer.scrollBy({ left: -300, behavior: 'smooth' });
+          galleryContainer.scrollBy({ left: -500, behavior: 'smooth' });
         });
 
         rightArrow.addEventListener('click', () => {
           const maxScrollLeft = galleryContainer.scrollWidth - galleryContainer.clientWidth;
           const remaining = maxScrollLeft - galleryContainer.scrollLeft;
-          const scrollAmount = remaining < 300 ? remaining : 300;
+          const scrollAmount = remaining < 500 ? remaining : 500;
           galleryContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         });
 
         galleryContainer.addEventListener('scroll', updateArrowVisibility);
 
-        // Drag-to-scroll
-        let isDown = false;
-        let startX;
-        let scrollLeft;
+        function setupDragScroll() {
 
-        galleryContainer.addEventListener('mousedown', (e) => {
-          isDown = true;
-          galleryContainer.classList.add('active');
-          startX = e.pageX - galleryContainer.offsetLeft;
-          scrollLeft = galleryContainer.scrollLeft;
-        });
+          if (window.innerWidth <= 1024) {
 
-        galleryContainer.addEventListener('mouseleave', () => {
-          isDown = false;
-          galleryContainer.classList.remove('active');
-        });
+            let isDown = false;
+            let startX;
+            let scrollLeft;
 
-        galleryContainer.addEventListener('mouseup', () => {
-          isDown = false;
-          galleryContainer.classList.remove('active');
-        });
+            galleryContainer.addEventListener('mousedown', (e) => {
+              isDown = true;
+              startX = e.pageX - galleryContainer.offsetLeft;
+              scrollLeft = galleryContainer.scrollLeft;
+            });
 
-        galleryContainer.addEventListener('mousemove', (e) => {
-          if(!isDown) return;
-          e.preventDefault();
-          const x = e.pageX - galleryContainer.offsetLeft;
-          const walk = (x - startX) * 2;
-          galleryContainer.scrollLeft = scrollLeft - walk;
-        });
+            galleryContainer.addEventListener('mouseup', () => isDown = false);
+            galleryContainer.addEventListener('mouseleave', () => isDown = false);
+
+            galleryContainer.addEventListener('mousemove', (e) => {
+              if (!isDown) return;
+              e.preventDefault();
+              const x = e.pageX - galleryContainer.offsetLeft;
+              const walk = (x - startX) * 2;
+              galleryContainer.scrollLeft = scrollLeft - walk;
+            });
+
+          }
+        }
+
+        setupDragScroll();
 
         // On window resize, recheck arrow visibility for this gallery
         window.addEventListener('resize', updateArrowVisibility);
