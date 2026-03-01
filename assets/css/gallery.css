@@ -226,7 +226,7 @@
 
   .gallery.style2 .image:hover {
     border: 3px solid rgba(0, 0, 0, 0.6);
-    transform: scale(1.02); /* subtle lift effect */
+    transform: scale(1.05); /* subtle lift effect */
   }
 }
 
