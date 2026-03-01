@@ -212,3 +212,38 @@
     object-fit: contain;   /* shows full image */
   }
 }
+
+/* ============================
+   Desktop Hover Effect
+   ============================ */
+@media (hover: hover) and (pointer: fine) {
+  .gallery.style2 .image {
+    border: 3px solid transparent;
+    border-radius: 12px; /* optional rounded corners */
+    transition: border 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+  }
+
+  .gallery.style2 .image:hover {
+    border: 3px solid rgba(0, 0, 0, 0.6);
+    transform: scale(1.02); /* subtle lift effect */
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .gallery.style2 .image {
+    position: relative;
+  }
+
+  .gallery.style2 .image::after {
+    content: "⛶";
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    font-size: 14px;
+    padding: 4px 6px;
+    border-radius: 6px;
+  }
+}
