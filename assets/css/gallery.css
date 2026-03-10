@@ -234,16 +234,4 @@
   .gallery.style2 .image {
     position: relative;
   }
-
-  .gallery.style2 .image::after {
-    content: "⛶";
-    position: absolute;
-    bottom: 8px;
-    left: 8px;
-    background: rgba(0,0,0,0.5);
-    color: white;
-    font-size: 14px;
-    padding: 4px 6px;
-    border-radius: 6px;
-  }
 }
